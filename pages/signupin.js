@@ -38,6 +38,11 @@ export default function SignUp() {
     }
   };
 
+  const handleFavoriteCorpsClick = () => {
+    // Redirect to the "Favorite Corps" page
+    router.push('/favoritecorps');
+  };
+
   return (
     <div className="container">
       <Head>
@@ -52,6 +57,9 @@ export default function SignUp() {
           <button type="submit">Submit</button>
           <input type="hidden" name="form-name" value="SignUpName" />
         </form>
+        
+        {/* Button to navigate to the "Favorite Corps" page */}
+        <button onClick={handleFavoriteCorpsClick}>Go to Favorite Corps</button>
       </main>
 
       <Footer />
