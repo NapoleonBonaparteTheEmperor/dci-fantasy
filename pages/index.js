@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 
-export default function WelcomePage() {
+export default function DummyPage() {
   return (
     <div className="container">
       <Head>
@@ -11,7 +11,7 @@ export default function WelcomePage() {
 
       <main>
         <h1>Welcome to my Drum Corps International Fantasy League!</h1>
-        <p>Please proceed to the next page to sign up or sign in.</p>
+        <p>Please proceed to the next page to sign up.</p>
         <Link href="/signupin">
           <a className="link">Sign Up, or Sign In!</a>
         </Link>
@@ -21,7 +21,7 @@ export default function WelcomePage() {
         <p>Please don't sue me box 5!</p>
       </footer>
 
-   <style jsx>{`
+      <style jsx>{`
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -33,7 +33,7 @@ export default function WelcomePage() {
           background-size: cover;
           background-position: center;
         }
-        
+
         main {
           padding: 5rem 0;
           flex: 1;
@@ -41,7 +41,7 @@ export default function WelcomePage() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          color: #5c7c81; /* Pastel blue */
+          color: black; /* Set text color to black */
         }
 
         footer {
@@ -59,7 +59,7 @@ export default function WelcomePage() {
         }
 
         .link {
-          color: #6699cc; /* Pastel blue */
+          color: black; /* Set link color to black */
           text-decoration: none;
           cursor: pointer;
           transition: color 0.3s ease;
