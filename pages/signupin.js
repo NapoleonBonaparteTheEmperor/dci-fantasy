@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link'; // Import Link component
 import Footer from '@components/Footer';
 
 export default function SignUp() {
@@ -62,7 +63,7 @@ export default function SignUp() {
     </div>
   );
 }
-// test
+
 // Hypothetical function to check if the username already exists
 async function checkUsernameExists(username) {
   // Your logic to check if the username exists (e.g., querying a database)
