@@ -16,10 +16,6 @@ export default function Home() {
           <input type="text" id="Name" name="Name" /><br />
         </form>
 
-        <form name="SignUpFavCorps" method="POST" data-netlify="true">
-          <label htmlFor="FavCorps">What's your Favorite Corps?</label><br />
-          <input type="text" id="FavCorps" name="FavCorps" /><br />
-        </form>
       </main>
 
       <Footer />
