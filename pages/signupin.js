@@ -3,22 +3,26 @@ import Head from 'next/head';
 import Footer from '@components/Footer';
 
 export default function Home() {
-  // State to store the username
+  // State to manage the username input value
   const [username, setUsername] = useState('');
 
   // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     
-    // Get the username value from the input field
-    const formData = new FormData(event.target);
-    const enteredUsername = formData.get('Name');
-    
     // Store the username in local storage
-    localStorage.setItem('username', enteredUsername);
+    localStorage.setItem('username', username);
 
-    // Update the state
-    setUsername(enteredUsername);
+    // Optional: You can redirect to another page here
+    // router.push('/some-page');
+
+    // Clear the username input field after submission
+    setUsername('');
+  };
+
+  // Function to handle username input change
+  const handleChange = (event) => {
+    setUsername(event.target.value);
   };
 
   return (
@@ -31,13 +35,9 @@ export default function Home() {
       <main>
         <form name="SignUpName" method="POST" data-netlify="true" onSubmit={handleSubmit}>
           <label htmlFor="Name">What's your username? (YOU CANNOT CHANGE THIS LATER, PLEASE MAKE IT UNIQUE.)</label><br />
-          <input type="text" id="Name" name="Name" /><br />
+          <input type="text" id="Name" name="Name" value={username} onChange={handleChange} /><br />
           <button type="submit">Submit</button>
-        </form>
-
-        <form name="SignUpFavCorps" method="POST" data-netlify="true">
-          <label htmlFor="FavCorps">What's your Favorite Corps?</label><br />
-          <input type="text" id="FavCorps" name="FavCorps" /><br />
+          <input type="hidden" name="form-name" value="SignUpName" />
         </form>
       </main>
 
