@@ -1,27 +1,27 @@
 import Link from 'next/link';
 import Head from 'next/head';
 
-export default function DummyPage() {
+export default function WelcomePage() {
   return (
     <div className="container">
       <Head>
-        <title>Dummy Page</title>
+        <title>Hello!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1>This is a Dummy Page</h1>
-        <p>This page does nothing but has a link to the signupin.js page.</p>
+        <h1>Welcome to my Drum Corps International Fantasy League!</h1>
+        <p>Please proceed to the next page to sign up or sign in.</p>
         <Link href="/signupin">
-          <a className="link">Go to Signupin Page</a>
+          <a className="link">Sign Up, or Sign In!</a>
         </Link>
       </main>
 
       <footer>
-        <p>Footer content goes here</p>
+        <p>Please don't sue me box 5!</p>
       </footer>
 
-      <style jsx>{`
+   <style jsx>{`
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -29,9 +29,11 @@ export default function DummyPage() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background-color: #f9eff3; /* Pastel pink */
+          background-image: url('/signupinbkg.png');
+          background-size: cover;
+          background-position: center;
         }
-
+        
         main {
           padding: 5rem 0;
           flex: 1;
