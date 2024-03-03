@@ -14,7 +14,7 @@ export default function Home() {
         <form>
     <label for="Name">What's your name?
     </label><br>
-    <input type="text" id="Name"<br>
+    <input type="text" id="Name"
     </form>
       </main>
 
