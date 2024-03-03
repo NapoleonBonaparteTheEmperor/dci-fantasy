@@ -11,12 +11,17 @@ export default function Home() {
       </Head>
 
       <main>
-        <form>
-          <label For="Name">What's your name?</label><br />
+        <form name="SignUpName" netlify>
+          <label For="Name">What's your username?(YOU CAN NOT CHANGE THIS LATER, PLEASE MAKE IT UNIQUE.)</label><br />
           <input type="text" id="Name" /><br />
         </form>
       </main>
-
+      <p>
+     <form name="SignUpFavCorps" netlify>
+          <label For="Name">What's your Favorite Corps?</label><br />
+          <input type="text" id="FavCorps" /><br />
+        </form>
+    <p/>
       <Footer />
     </div>
   )
