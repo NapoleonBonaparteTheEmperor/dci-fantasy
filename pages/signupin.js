@@ -18,29 +18,25 @@ export default function SignUp() {
       if (usernameExists) {
         // Redirect to picks.js with the username
         router.push(`/picks?username=${encodeURIComponent(username)}`);
-      } else {
-        // Submit the form data to Netlify
-        const response = await fetch('/', {
-          method: 'POST',
-          body: formData,
-        });
+        return; // Stop further execution
+      }
 
-        if (response.ok) {
-          // Handle successful form submission
-          console.log('Form submitted successfully');
-        } else {
-          // Handle form submission failure
-          console.error('Form submission failed:', response.statusText);
-        }
+      // Submit the form data to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        // Handle successful form submission
+        console.log('Form submitted successfully');
+      } else {
+        // Handle form submission failure
+        console.error('Form submission failed:', response.statusText);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
     }
-  };
-
-  const handleFavoriteCorpsClick = () => {
-    // Redirect to the "Favorite Corps" page
-    router.push('/favoritecorps');
   };
 
   return (
@@ -58,8 +54,8 @@ export default function SignUp() {
           <input type="hidden" name="form-name" value="SignUpName" />
         </form>
         
-        {/* Button to navigate to the "Favorite Corps" page */}
-        <button onClick={handleFavoriteCorpsClick}>Go to Favorite Corps</button>
+        <Link href="/">Home</Link> <br />
+        <Link href="/favoritecorps">New Page</Link> <br />
       </main>
 
       <Footer />
