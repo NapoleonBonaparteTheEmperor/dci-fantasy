@@ -3,8 +3,31 @@ import Link from 'next/link';
 import Footer from '@components/Footer';
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const username = formData.get('Name');
+
+    try {
+      // Additional form handling logic, such as validation
+      
+      // Submit the form data to Netlify
+      const response = await fetch('/', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        // Handle successful form submission
+        console.log('Form submitted successfully');
+      } else {
+        // Handle form submission failure
+        console.error('Form submission failed:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
