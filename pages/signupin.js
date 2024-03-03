@@ -1,43 +1,24 @@
-import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link'; // Import Link component
 import Footer from '@components/Footer';
 
-export default function SignUp() {
-  const router = useRouter();
+export default function Home() {
+  // State to store the username
+  const [username, setUsername] = useState('');
 
-  const handleSubmit = async (event) => {
+  // Function to handle form submission
+  const handleSubmit = (event) => {
     event.preventDefault();
     
+    // Get the username value from the input field
     const formData = new FormData(event.target);
-    const username = formData.get('Name');
+    const enteredUsername = formData.get('Name');
+    
+    // Store the username in local storage
+    localStorage.setItem('username', enteredUsername);
 
-    try {
-      // Check if the username already exists (you need to implement this logic)
-      const usernameExists = await checkUsernameExists(username);
-
-      if (usernameExists) {
-        // Redirect to picks.js with the username
-        router.push(`/picks?username=${encodeURIComponent(username)}`);
-        return; // Stop further execution
-      }
-
-      // Submit the form data to Netlify
-      const response = await fetch('/', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        // Handle successful form submission
-        console.log('Form submitted successfully');
-      } else {
-        // Handle form submission failure
-        console.error('Form submission failed:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
+    // Update the state
+    setUsername(enteredUsername);
   };
 
   return (
@@ -52,20 +33,15 @@ export default function SignUp() {
           <label htmlFor="Name">What's your username? (YOU CANNOT CHANGE THIS LATER, PLEASE MAKE IT UNIQUE.)</label><br />
           <input type="text" id="Name" name="Name" /><br />
           <button type="submit">Submit</button>
-          <input type="hidden" name="form-name" value="SignUpName" />
         </form>
-        
-        <Link href="/">Home</Link> <br />
-        <Link href="/favoritecorps">New Page</Link> <br />
+
+        <form name="SignUpFavCorps" method="POST" data-netlify="true">
+          <label htmlFor="FavCorps">What's your Favorite Corps?</label><br />
+          <input type="text" id="FavCorps" name="FavCorps" /><br />
+        </form>
       </main>
 
       <Footer />
     </div>
   );
-}
-
-// Hypothetical function to check if the username already exists
-async function checkUsernameExists(username) {
-  // Your logic to check if the username exists (e.g., querying a database)
-  // Return true if the username exists, false otherwise
 }
