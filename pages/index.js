@@ -13,7 +13,7 @@ export default function DummyPage() {
         <h1>This is a Dummy Page</h1>
         <p>This page does nothing but has a link to the signupin.js page.</p>
         <Link href="/signupin">
-          <a>Go to Signupin Page</a>
+          <a className="link">Go to Signupin Page</a>
         </Link>
       </main>
 
@@ -29,6 +29,7 @@ export default function DummyPage() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: #f9eff3; /* Pastel pink */
         }
 
         main {
@@ -38,6 +39,7 @@ export default function DummyPage() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          color: #5c7c81; /* Pastel blue */
         }
 
         footer {
@@ -47,20 +49,22 @@ export default function DummyPage() {
           display: flex;
           justify-content: center;
           align-items: center;
+          background-color: #f9eff3; /* Pastel pink */
         }
 
         footer p {
           margin: 0;
         }
 
-        a {
-          color: blue;
-          text-decoration: underline;
+        .link {
+          color: #6699cc; /* Pastel blue */
+          text-decoration: none;
           cursor: pointer;
+          transition: color 0.3s ease;
         }
 
-        a:hover {
-          color: darkblue;
+        .link:hover {
+          color: #4073b8; /* Darker pastel blue */
         }
       `}</style>
     </div>
