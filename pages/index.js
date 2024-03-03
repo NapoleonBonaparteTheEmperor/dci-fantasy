@@ -12,10 +12,9 @@ export default function Home() {
 
       <main>
         <form>
-    <label for="Name">What's your name?
-    </label><br>
-    <input type="text" id="Name"
-    </form>
+          <label For="Name">What's your name?</label><br />
+          <input type="text" id="Name" /><br />
+        </form>
       </main>
 
       <Footer />
