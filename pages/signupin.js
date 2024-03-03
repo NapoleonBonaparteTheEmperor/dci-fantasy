@@ -62,7 +62,7 @@ export default function SignUp() {
     </div>
   );
 }
-
+// test
 // Hypothetical function to check if the username already exists
 async function checkUsernameExists(username) {
   // Your logic to check if the username exists (e.g., querying a database)
